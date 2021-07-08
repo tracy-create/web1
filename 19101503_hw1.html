@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>19101503 손서원</title>
+        <style>
+          #chat_log_box{
+            border:1px solid black;
+            width:1fr;
+            margin:10px;
+            display:block;
+            height:400px;
+            font-size:20px;
+          }
+          #name_box{
+            border: 2px solid black
+            display:block;
+            width:20%;
+            height:30px;
+            font-size:15px;
+            margin:10px;
+          }
+          #message_box{
+            border: 2px solid black
+            display:block;
+            width: 63%;
+            height:30px;
+            font-size:15px;
+            margin:5px;
+          }
+          #send_box{
+            border: 2px solid black
+            display:block;
+            width: 10%;
+            height:30px;
+            font-size:15px;
+            margin:5px;
+          }
+        </style>
+    </head>
+    <body>
+        <div id = "chat_log_box"></div>                               <!--chat_log_box 생성-->
+          <input type = "text" id = "name_box"/>
+          <input type = "text"  id = "message_box"/>                  <!--test 형식의 message_box, 버튼 "chat"box 생성-->
+          <input type = "button" value = "chat" id = "send_box"/>
+
+        <script type = "text/javascript">
+          document.getElementById('chat_log_box').readOnly = true;    /*chat_log_box & name_box 읽기전용 생성*/
+          document.getElementById('name_box').readOnly = true;
+
+          var nickname = prompt("닉네임을 입력하세요.");
+          name_box.value = nickname;
+          send_box.onclick = function(){
+            chat_log_box.innerHTML += name_box.value + ":" + message_box.value + "</br>" ;
+            message_box.value = "";
+          }
+          message_box.onkeydown = function(){
+            if (window.event.keyCode == 13){
+              chat_log_box.innerHTML += name_box.value + ":" + message_box.value + "</br>";
+              message_box.value = "";
+            }
+          }
+        </script>
+    </body>
+</html>
